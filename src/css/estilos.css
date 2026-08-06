@@ -58,6 +58,7 @@ body {
 
 
 .home .redes-sociais a svg {
+	color: #fff;
 	border: 1px solid #fff;
 	border-radius: 50%;
 	width: 50px;
@@ -74,6 +75,12 @@ body {
 	transform: scale(1.1);
 }
 
+.home .redes-sociais a svg:hover {
+	color: #9443d8;
+	border: 1px solid #9443d8;
+	transform: scale(1.1);
+}
+
 .home .container-foto .foto {
 	max-width: 450px;
 	border-radius: 50%;
@@ -82,4 +89,14 @@ body {
 .home .container-foto img {
 	width: 80%;
 	border-radius: 50%;
+}
+
+#creditos footer p a {
+	color: #9443d8;
+}
+
+#creditos {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }

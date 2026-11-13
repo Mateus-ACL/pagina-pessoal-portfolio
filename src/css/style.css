@@ -1,0 +1,309 @@
+/* =========================================================
+   CORES — mexa aqui primeiro. Tudo no site usa essas variáveis.
+   ========================================================= */
+:root {
+  --destaque: #9d1290;
+  /* sua cor */
+  --destaque-claro: #e07fd6;
+  /* versão clara, para textos sobre fundo escuro */
+
+  --fundo: #130f18;
+  --superficie: #1c1724;
+  --borda: #2f2639;
+  --texto: #f1ecf5;
+  --texto-suave: #a99fb3;
+
+  --largura: 1040px;
+}
+
+/* Se o visitante usa o tema claro no celular/PC, o site acompanha */
+@media (prefers-color-scheme: light) {
+  :root {
+    --destaque-claro: #9d1290;
+    --fundo: #ffffff;
+    --superficie: #f7f2f8;
+    --borda: #e6dbe8;
+    --texto: #1d1623;
+    --texto-suave: #5f5469;
+  }
+}
+
+/* =========================================================
+   BASE
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+body {
+  margin: 0;
+  font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 1.125rem;
+  line-height: 1.65;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 3px solid var(--destaque-claro);
+  outline-offset: 3px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   TOPO (a barra roxa do seu site antigo)
+   ========================================================= */
+.topo {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--destaque);
+  color: #fff;
+}
+
+.topo__conteudo {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.topo__nome {
+  font-weight: 800;
+  font-size: 1.1rem;
+  text-decoration: none;
+}
+
+.topo nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.topo nav a {
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.topo nav a:hover {
+  opacity: 1;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.topo a:focus-visible {
+  outline-color: #fff;
+}
+
+/* =========================================================
+   SOBRE
+   ========================================================= */
+.sobre {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 6rem 1.5rem 5rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 4rem;
+}
+
+.sobre__perfil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Hexágono da foto, com um hexágono roxo deslocado atrás */
+.hexagono {
+  --hex: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  position: relative;
+  width: 260px;
+  aspect-ratio: 1 / 1.1;
+}
+
+.hexagono::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--destaque);
+  clip-path: var(--hex);
+  transform: translate(14px, 14px);
+}
+
+.hexagono img {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #8f8f8f;
+  /* cinza que aparece se a foto não carregar */
+  clip-path: var(--hex);
+}
+
+/* Os 3 botões quadrados do seu Canva */
+.atalhos {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.atalhos a {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: var(--destaque);
+  color: #fff;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.atalhos a:hover {
+  transform: translateY(-3px);
+  background: #b216a3;
+}
+
+.atalhos a:focus-visible {
+  outline-color: var(--destaque-claro);
+}
+
+.atalhos svg {
+  width: 26px;
+  height: 26px;
+}
+
+.sobre__texto {
+  max-width: 34rem;
+}
+
+.sobre__texto p {
+  margin: 0 0 1.25rem;
+  color: var(--texto-suave);
+}
+
+.sobre__texto .apresentacao {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  line-height: 1.15;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--texto);
+  margin-bottom: 1.75rem;
+}
+
+.sobre__texto strong {
+  font-weight: 800;
+}
+
+/* =========================================================
+   HABILIDADES
+   ========================================================= */
+.habilidades {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 3rem 1.5rem 6rem;
+}
+
+.habilidades h2 {
+  margin: 0 0 2rem;
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  padding-left: 1rem;
+  border-left: 5px solid var(--destaque);
+}
+
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.grade li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 1rem;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: 14px;
+  transition: border-color 0.15s ease;
+}
+
+.grade li:hover {
+  border-color: var(--destaque);
+}
+
+.grade i {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+
+.grade span {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* =========================================================
+   RODAPÉ
+   ========================================================= */
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+@media (max-width: 760px) {
+  .sobre {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    padding-top: 3.5rem;
+    gap: 3rem;
+  }
+
+  .hexagono {
+    width: 220px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}

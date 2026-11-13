@@ -1,0 +1,1 @@
+**AVISO:** a atual versão do site (atualizado dia 12/11/26) foi feita utilizando claude code. Embora eu tenha revisado o código antes de fazer as atualizações isso não altera o fato anterior.
